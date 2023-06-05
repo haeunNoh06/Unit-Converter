@@ -5,40 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <Style>
-        #my_div {
-            background: green;
-            height: 100px;
-            width: 100px;
+    <style>
+        .outer{
+            width : 500px;
+            height : 200px;
+            background-color : black;
+            display : flex;
+            justify-content : center;
+            align-items : center;
         }
-    </Style>
-    <script>
-        const div = document.getElementById('my_div');
-        const clearbtn = document.getElementById('clearbtn');
-        const result = document.getElementById('result');
 
-        div.addEventListener('click', (event) => {
-            result.innerHTML+= '<div>click</div>';
-        });
+        .inner{
+            width : 100px;
+            height : 100px;
+            background-color : pink;
+        }
 
-        div.addEventListener('mousedown', (event) => {
-            result.innerHTML+= '<div>mousedown</div>';
-        });
-
-        div.addEventListener('mouseup', (event) => {
-            result.innerHTML+= '<div>mouseup</div>';
-        });
-
-        clearbtn.addEventListener('click', (event) => {
-            result.innerHTML= '';
-        });
-    </script>
+        .text {
+            color : white;
+        }
+    </style>
 </head>
 <body>
-    <div id='my_div'>
+    <div class="outer">
+        <div class="inner">
+            <p class="text"></p>
+        </div>
     </div>
-    <input id='clearbtn' type='button' value='clear' />
-    <div id='result'>
-    </div>
+    <script>
+        const div = document.querySelector('.outer');
+        let text = document.querySelector('.text');
+
+        let num = 1;
+        div.addEventListener('click', () =>{
+            text.innerHTML = `클릭! ${num}`;
+            num++;
+        });
+    </script>
 </body>
 </html>
