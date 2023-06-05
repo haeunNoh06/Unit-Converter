@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <Style>
+        #my_div {
+            background: green;
+            height: 100px;
+            width: 100px;
+        }
+    </Style>
+    <script>
+        const div = document.getElementById('my_div');
+        const clearbtn = document.getElementById('clearbtn');
+        const result = document.getElementById('result');
+
+        div.addEventListener('click', (event) => {
+            result.innerHTML+= '<div>click</div>';
+        });
+
+        div.addEventListener('mousedown', (event) => {
+            result.innerHTML+= '<div>mousedown</div>';
+        });
+
+        div.addEventListener('mouseup', (event) => {
+            result.innerHTML+= '<div>mouseup</div>';
+        });
+
+        clearbtn.addEventListener('click', (event) => {
+            result.innerHTML= '';
+        });
+    </script>
+</head>
+<body>
+    <div id='my_div'>
+    </div>
+    <input id='clearbtn' type='button' value='clear' />
+    <div id='result'>
+    </div>
+</body>
+</html>
