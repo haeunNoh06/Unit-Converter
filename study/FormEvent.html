@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .invalid {
+        border-color: red;
+    }
+
+    #error {
+        color: red
+    }
+</style>
+
+<body>
+
+    이메일: <input type="email" id="input"> <br />
+    비밀번호: <input type="text" id="passwd">
+
+    <div id="error"></div>
+
+    <script>
+        input.onblur = function () {
+            if (!input.value.includes('@')) { // @ 유무를 이용해 유효한 이메일 주소가 아닌지 체크
+                input.classList.add('invalid');
+                error.innerHTML = '올바른 이메일 주소를 입력하세요.'
+            } else {
+                this.classList.remove("invalid");
+            }
+        };
+
+
+        input.onfocus = function () {
+            if (this.classList.contains('invalid')) {
+                // 사용자가 새로운 값을 입력하려고 하므로 에러 메시지를 지움
+                this.classList.remove('invalid');
+                error.innerHTML = "";
+            }
+        };
+    </script>
+    <input type="button" value="click" class="btn" onclick="alert('click')">
+    <input type="button" value="over" class="btn" onmouseover="alert('mouseover!')">
+    <input type="button" value="dbclick" class="btn" ondblclick="alert('dbclick!')">
+</body>
+
+</html>
